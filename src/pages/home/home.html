@@ -1,0 +1,39 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-buttons start>
+     
+    </ion-buttons>
+    <ion-title text-center>在线举证</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content >
+ 
+  <ion-list>
+    <button
+      ion-item
+      *ngFor="let quoteGroup of quoteCollection"
+      [navPush]="quotesPage"
+      [navParams]="quoteGroup">
+       <ion-thumbnail item-left>
+        <img [src]="profilePicture"  style="width:60px;height:60px;margin-top:16px;">
+      </ion-thumbnail>
+      <h2 style="margin-top:10px;">{{ quoteGroup.category | uppercase }}</h2>
+      <p>
+        总共：{{ quoteGroup.quotes.length }} 
+         已举证：{{ quoteGroup.quotes.length }} 
+      </p>
+    
+    </button>
+  </ion-list>
+</ion-content>
+<ion-footer>
+  <div class="liu" style="text-align:center;">
+    <button ion-button>导入</button>
+    <button ion-button>导出</button>
+    
+  </div>
+</ion-footer>
